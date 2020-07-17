@@ -1,0 +1,225 @@
+
+@mixin clearFloat {
+    content: '.';
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+ }
+
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 14px;
+    line-height: 1.1;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.welcomeMessage {
+    text-align: center;
+}
+
+.feedbackBtn {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.overlay {
+    background-color: #ccc; // $blackText;
+    opacity: .6; // .3;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.modelDlg {
+    position: absolute;
+    border: 1px solid #777;
+    border-radius: 5px;
+    background: rgb(242, 242, 242);
+    box-shadow : 6px 6px 4px rgba(0, 0, 0, 0.2);
+    width: 450px;
+    top: 150px;
+    left: calc(50% - 225px);
+    padding: 10px;
+}
+
+.surveyDlg {
+    font-size: 12px;
+
+    .header {
+        font-size: 18px;
+        font-weight: bold;
+        font-stretch: ultra-expanded;
+    }
+
+    .required {
+        margin-top: 15px;
+        margin-bottom: 15px;
+        font-size: 12px;
+        font-style: italic;
+        color: #999;
+
+        .requiredSymbol {
+            color: red;
+            display: inline-block;
+            margin-right: 5px;
+        }
+
+        .label {
+            display: inline-block;
+        }
+    }
+
+    .hide {
+        display: none;
+    }
+
+    .label {
+        display: inline-block;
+        margin-bottom: 5px;
+
+        .requiredSymbol {
+            margin-left: 5px;
+            color: red;
+            display: inline-block;
+        }
+    }
+
+
+
+    .ranking {
+        .rankingEntries {
+            font-size: 13px;
+
+            .entry {
+                float: left;
+                border: 1px solid #bbb;
+                border-radius: 3px;
+                background-color: #ccc;
+                padding: 10px;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: #777;
+                }
+
+                &.selected {
+                    background-color: #777;
+                }
+            }
+
+            .entry:not(:last-child) {
+                margin-right: 10px;
+            }
+
+            &:after {
+                @include clearFloat;
+            }
+        }
+
+        .rankingLabels {
+            color: #999;
+            margin-top: 5px;
+
+            .leftLabel {
+                float: left;
+            }
+
+            .rightLabel {
+                float: right;
+            }
+
+            &:after {
+                @include clearFloat;
+            }
+        }
+
+    }
+
+    .multiLineText {
+        .messageArea {
+            position: relative;
+            width: 100%;
+            resize: none;
+            padding: 5px;
+            box-sizing: border-box;
+            height: 50px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 13px;
+            border-radius: 3px;
+            outline: none;
+        }
+
+        .messageLengthDiv {
+            text-align: right;
+
+            .messageLength {
+                display: inline-block;
+            }
+
+            .messageLengthMsg {
+                display: inline-block;
+                margin-left: 5px;
+            }
+        }
+    }
+
+    .dropdown {
+        .select {
+            width: 100%;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            padding: 4px;
+        }
+    }
+
+
+    .radioButtons {
+        .radioBtnDiv {
+            .radioBtn {
+                display: inline-block;
+                margin-bottom: 10px;
+            }
+        }
+
+        .radioBtnLabel {
+            display: inline-block;
+            position: relative;
+            top: -2px;
+            font-size: 14px;
+
+            &.vertical {
+                width: 95%;
+            }
+        }
+    }
+
+    .actionButton {
+        margin-top: 20px;
+        margin-bottom: 10px;
+        text-align: center;
+
+        .nextSubmitBtn {
+            font-size: 16px;
+            padding: 5px 30px;
+            background-color: #C6D3D9;
+            border: 1px solid #C6D3D9;
+            border-radius: 5px;
+            color: #555;
+
+            &:disabled {
+                color: #ddd;
+                background-color: #eee;
+            }
+        }
+    }
+}
+
+
+

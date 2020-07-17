@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Auryc Multi Step</title>
+    <meta charset="UTF-8"/>
+
+    <link href="css/auryc.css" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="auryc">
+        <h1 class="welcomeMessage">Welcome to Multi-Step Survey</h1>
+        <button class="feedbackBtn" onClick="aurycSurvey.display()">Feedback</button>
+    </div>
+</body>
+
+<script type="text/javascript" src="js/aurycSurvey.js"></script>
+<script>
+    const survery = [
+        {
+            type: 'header',
+            label: 'COLE HAAN',
+        },
+        {   type: 'requiredMsg',
+            label: 'Required fields',
+            symbol: '*',
+        },
+        {
+            name: 'recommendation',
+            type: 'ranking',
+            label: 'How likely are you to recommed Cole Hannn to a friend or colleague?',
+            required: true,
+            requiredSymbol: '*',
+            leftLabel: 'Not at all likely',
+            rightLabel: 'Extremely likely',
+        },
+        {
+            name: 'category',
+            type: 'dropdown',
+            label: 'Please choose a category you would like to leave feedback about.',
+            dropdown: ['Choose...', 'Our Website', 'Our Products', 'Our Retail Locations', 'Customer Service', 'Cole Hann, Generally'],
+        //     selectedValue: [{
+        //         values: 'Our Website',
+        //         fields: [
+        //             {
+        //                 name: 'website-goal',
+        //                 type: 'dropdown',
+        //                 label: 'What was you goal for todays vistion to ColeHaan.com?',
+        //                 dropdown: [
+        //                     'Choose...',
+        //                     'Browse new arrivals',
+        //                     'Find a specific style', 
+        //                     'Compare products',
+        //                     'Browse sale items',
+        //                     'Contact Customer Service',
+        //                     'Return or exchange an item'
+        //                 ],
+        //             },
+        //             {
+        //                 name: 'website-goal',
+        //                 type: 'radioButtons',
+        //                 direction: 'vertical',
+        //                 buttons: ['Very Difficult', 'Difficult', 'Not Difficult nor Easy', 'Easy', 'Very Easy']
+        //             }
+
+        //         ]
+        //     }]
+        },
+        {
+            name: 'website-goal',
+            label: 'How easy was it to accomplish that goal?',
+            type: 'radioButtons',
+            direction: 'vertical',
+            buttons: ['Very Difficult', 'Difficult', 'Not Difficult nor Easy', 'Easy', 'Very Easy']
+        },
+        {
+            name: 'feedback',
+            type: 'multiLineText',
+            label: 'Please share your feedback',
+            placeholder: 'Your answer',
+        }
+    ]
+    $(function() {
+        aurycSurvey.init(survery);
+    })
+</script>
+</html>
